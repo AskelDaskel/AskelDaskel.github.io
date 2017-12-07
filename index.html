@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Timer</title>
+    <style media="screen">
+    /*http://jsfiddle.net/dtCvt/3/*/
+    /*https://codepen.io/carsy/pen/VvqJwm*/
+    </style>
+  </head>
+<body>
+  <script src="Scripts/ChampionSelect.js" charset="utf-8"></script>
+  <script src="Scripts/SummonerSpellCooldown.js" charset="utf-8"></script>
+  <script src="Scripts/SummonerSpellSelect.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+  <div id="Container">
+
+  <div id="ChampionContainer">
+    <div id="TopContainer"></div>
+    <div id="JungleContainer"></div>
+    <div id="MidContainer"></div>
+    <div id="ADCContainer"></div>
+    <div id="SupportContainer"></div>
+  </div>
+
+  <div id="SummonerSpellContainer">
+    <div id="Top1"></div>
+    <div id="Top2"></div>
+    <div id="Jungle1"></div>
+    <div id="Jungle2"></div>
+    <div id="Mid1"></div>
+    <div id="Mid2"></div>
+    <div id="ADC1"></div>
+    <div id="ADC2"></div>
+    <div id="Support1"></div>
+    <div id="Support2"></div>
+  </div>
+
+  <div id="CooldownContainer">
+    <input id="TopCooldown1" readonly>
+    <input id="TopCooldown2" readonly>
+    <input id="JungleCooldown1" readonly>
+    <input id="JungleCooldown2" readonly>
+    <input id="MidCooldown1" readonly>
+    <input id="MidCooldown2" readonly>
+    <input id="ADCCooldown1" readonly>
+    <input id="ADCCooldown2" readonly>
+    <input id="SupportCooldown1" readonly>
+    <input id="SupportCooldown2" readonly>
+  </div>
+
+  <div id="InputContainer">
+    <input id="Top" placeholder="Top" list="ChampionList" onchange="TopSelect()">
+    <input id="Jungle" placeholder="Jungle" list="ChampionList" onchange="JungleSelect()">
+    <input id="Mid" placeholder="Mid" list="ChampionList" onchange="MidSelect()">
+    <input id="ADC" placeholder="ADC" list="ChampionList" onchange="ADCSelect()">
+    <input id="Support" placeholder="Support" list="ChampionList" onchange="SupportSelect()">
+
+  <datalist id="ChampionList">
+    <option value="Aatrox"></option>
+    <option value="Ahri"></option>
+    <option value="Akali"></option>
+    <option value="Alistar"></option>
+    <option value="Amumu"></option>
+    <option value="Anivia"></option>
+    <option value="Annie"></option>
+    <option value="Ashe"></option>
+    <option value="Aurelion Sol"></option>
+    <option value="Azir"></option>
+    <option value="Bard"></option>
+    <option value="Blitzcrank"></option>
+    <option value="Brand"></option>
+    <option value="Braum"></option>
+    <option value="Caitlyn"></option>
+    <option value="Camille"></option>
+    <option value="Cassiopeia"></option>
+    <option value="Cho'Gath"></option>
+    <option value="Corki"></option>
+    <option value="Darius"></option>
+    <option value="Diana"></option>
+    <option value="Dr. Mundo"></option>
+    <option value="Draven"></option>
+    <option value="Ekko"></option>
+    <option value="Elise"></option>
+    <option value="Evelynn"></option>
+    <option value="Ezreal"></option>
+    <option value="Fiddlesticks"></option>
+    <option value="Fiora"></option>
+    <option value="Fizz"></option>
+    <option value="Galio"></option>
+    <option value="Gangplank"></option>
+    <option value="Garen"></option>
+    <option value="Gnar"></option>
+    <option value="Gragas"></option>
+    <option value="Graves"></option>
+    <option value="Hecarim"></option>
+    <option value="Heimerdinger"></option>
+    <option value="Illaoi"></option>
+    <option value="Irelia"></option>
+    <option value="Ivern"></option>
+    <option value="Janna"></option>
+    <option value="Jarvan IV"></option>
+    <option value="Jax"></option>
+    <option value="Jayce"></option>
+    <option value="Jhin"></option>
+    <option value="Jinx"></option>
+    <option value="Kalista"></option>
+    <option value="Karma"></option>
+    <option value="Karthus"></option>
+    <option value="Kassadin"></option>
+    <option value="Katarina"></option>
+    <option value="Kayle"></option>
+    <option value="Kayn"></option>
+    <option value="Kennen"></option>
+    <option value="Kha'Zix"></option>
+    <option value="Kindred"></option>
+    <option value="Kled"></option>
+    <option value="Kog'Maw"></option>
+    <option value="LeBlanc"></option>
+    <option value="Lee Sin"></option>
+    <option value="Leona"></option>
+    <option value="Lissandra"></option>
+    <option value="Lucian"></option>
+    <option value="Lulu"></option>
+    <option value="Lux"></option>
+    <option value="Malphite"></option>
+    <option value="Malzahar"></option>
+    <option value="Maokai"></option>
+    <option value="Master Yi"></option>
+    <option value="Miss Fortune"></option>
+    <option value="Mordekaiser"></option>
+    <option value="Morgana"></option>
+    <option value="Nami"></option>
+    <option value="Nasus"></option>
+    <option value="Nautilus"></option>
+    <option value="Nidalee"></option>
+    <option value="Nocturne"></option>
+    <option value="Nunu"></option>
+    <option value="Olaf"></option>
+    <option value="Orianna"></option>
+    <option value="Ornn"></option>
+    <option value="Pantheon"></option>
+    <option value="Poppy"></option>
+    <option value="Quinn"></option>
+    <option value="Rakan"></option>
+    <option value="Rammus"></option>
+    <option value="Rek'Sai"></option>
+    <option value="Renekton"></option>
+    <option value="Rengar"></option>
+    <option value="Riven"></option>
+    <option value="Rumble"></option>
+    <option value="Ryze"></option>
+    <option value="Sejuani"></option>
+    <option value="Shaco"></option>
+    <option value="Shen"></option>
+    <option value="Shyvana"></option>
+    <option value="Singed"></option>
+    <option value="Sion"></option>
+    <option value="Sivir"></option>
+    <option value="Skarner"></option>
+    <option value="Sona"></option>
+    <option value="Soraka"></option>
+    <option value="Swain"></option>
+    <option value="Syndra"></option>
+    <option value="Tahm Kench"></option>
+    <option value="Taliyah"></option>
+    <option value="Talon"></option>
+    <option value="Taric"></option>
+    <option value="Teemo"></option>
+    <option value="Thresh"></option>
+    <option value="Tristana"></option>
+    <option value="Trundle"></option>
+    <option value="Tryndamere"></option>
+    <option value="Twisted Fate"></option>
+    <option value="Twitch"></option>
+    <option value="Udyr"></option>
+    <option value="Urgot"></option>
+    <option value="Varus"></option>
+    <option value="Warwick"></option>
+    <option value="Vayne"></option>
+    <option value="Veigar"></option>
+    <option value="Vel'Koz"></option>
+    <option value="Viktor"></option>
+    <option value="Vi"></option>
+    <option value="Vladimir"></option>
+    <option value="Volibear"></option>
+    <option value="Wukong"></option>
+    <option value="Xayah"></option>
+    <option value="Xerath"></option>
+    <option value="Xin Zhao"></option>
+    <option value="Yasuo"></option>
+    <option value="Yorick"></option>
+    <option value="Zac"></option>
+    <option value="Zed"></option>
+    <option value="Ziggs"></option>
+    <option value="Zilean"></option>
+    <option value="Zoe"></option>
+    <option value="Zyra"></option>
+  </datalist>
+
+  <div id="TopChamp">
+    <select id="TopSummoner1" onchange="TopSummonerSelect1()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+    <select id="TopSummoner2" onchange="TopSummonerSelect2()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+
+<div id="checkbox">
+    <div class="pretty p-default p-round">
+      <input type="checkbox" id="UnsealedSpellBookTop"/>
+      <div class="state p-success-o">
+      <label for="UnsealedSpellBookTop">Spellbook</label>
+        </div>
+    </div>
+
+    <div class="pretty p-default p-round">
+      <input type="checkbox" id="CosmicInsightTop"/>
+      <div class="state p-success-o">
+      <label for="CosmicInsightTop">Insight</label>
+        </div>
+    </div>
+
+    <div class="pretty p-default p-round">
+      <input type="checkbox" id="LucidityTop"/>
+      <div class="state p-success-o">
+        <label for="LucidityTop">Lucidity</label>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="JungleChamp">
+    <select id="JungleSummoner1" onchange="JungleSummonerSelect1()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+    <select id="JungleSummoner2" onchange="JungleSummonerSelect2()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+
+<div id="checkbox">
+    <div class="pretty p-default p-round">
+      <input type="checkbox" id="UnsealedSpellBookJungle"/>
+      <div class="state p-success-o">
+      <label for="UnsealedSpellBookJungle">Spellbook</label>
+        </div>
+    </div>
+
+    <div class="pretty p-default p-round">
+      <input type="checkbox" id="CosmicInsightJungle"/>
+      <div class="state p-success-o">
+      <label for="CosmicInsightJungle">Insight</label>
+        </div>
+    </div>
+
+    <div class="pretty p-default p-round">
+      <input type="checkbox" id="LucidityJungle"/>
+      <div class="state p-success-o">
+        <label for="LucidityJungle">Lucidity</label>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="MidChamp">
+    <select id="MidSummoner1" onchange="MidSummonerSelect1()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+    <select id="MidSummoner2" onchange="MidSummonerSelect2()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+
+<div id="checkbox">
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="UnsealedSpellBookMid"/>
+          <div class="state p-success-o">
+          <label for="UnsealedSpellBookMid">Spellbook</label>
+            </div>
+        </div>
+
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="CosmicInsightMid"/>
+          <div class="state p-success-o">
+          <label for="CosmicInsightMid">Insight</label>
+            </div>
+        </div>
+
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="LucidityMid"/>
+          <div class="state p-success-o">
+            <label for="LucidityMid">Lucidity</label>
+            </div>
+        </div>
+      </div>
+      </div>
+
+  <div id="ADCChamp">
+    <select id="ADCSummoner1" onchange="ADCSummonerSelect1()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+    <select id="ADCSummoner2" onchange="ADCSummonerSelect2()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+
+<div id="checkbox">
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="UnsealedSpellBookADC"/>
+          <div class="state p-success-o">
+          <label for="UnsealedSpellBookADC">Spellbook</label>
+            </div>
+        </div>
+
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="CosmicInsightADC"/>
+          <div class="state p-success-o">
+          <label for="CosmicInsightADC">Insight</label>
+            </div>
+        </div>
+
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="LucidityADC"/>
+          <div class="state p-success-o">
+            <label for="LucidityADC">Lucidity</label>
+            </div>
+        </div>
+      </div>
+      </div>
+
+  <div id="SupportChamp">
+    <select id="SupportSummoner1" onchange="SupportSummonerSelect1()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+    <select id="SupportSummoner2" onchange="SupportSummonerSelect2()">
+      <option>Spell</option>
+      <option value="Barrier">Barrier</option>
+      <option value="Cleanse">Cleanse</option>
+      <option value="Exhaust">Exhaust</option>
+      <option value="Flash">Flash</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Heal">Heal</option>
+      <option value="Ignite">Ignite</option>
+      <option value="Smite">Smite</option>
+      <option value="Teleport">Teleport</option>
+    </select>
+
+<div id="checkbox">
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="UnsealedSpellBookSupport"/>
+          <div class="state p-success-o">
+          <label for="UnsealedSpellBookSupport">Spellbook</label>
+            </div>
+        </div>
+
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="CosmicInsightSupport"/>
+          <div class="state p-success-o">
+          <label for="CosmicInsightSupport">Insight</label>
+            </div>
+        </div>
+
+        <div class="pretty p-default p-round">
+          <input type="checkbox" id="LuciditySupport"/>
+          <div class="state p-success-o">
+            <label for="LuciditySupport">Lucidity</label>
+            </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var barrier = 180; //180
+    var cleanse = 210; //210
+    var exhaust = 210; //210
+    var flash = 300; //300
+    var ghost = 180; //180
+    var heal = 240; //240
+    var ignite = 210; //210
+    var teleport = 300; //300
+    var smite = false;
+    var ready = false;
+    var countdownTop1;
+    var countdownTop2;
+    var countdownJungle1;
+    var countdownJungle2;
+    var countdownMid1;
+    var countdownMid2;
+    var countdownADC1;
+    var countdownADC2;
+    var countdownSupport1;
+    var countdownSupport2;
+</script>
+  </body>
+</html>

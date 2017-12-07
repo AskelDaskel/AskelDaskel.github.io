@@ -1,0 +1,153 @@
+body {
+  transform: translate(20%, -40%) scale(1.8);
+}
+img {
+  margin-right: 5px;
+}
+#checkbox {
+  transform: translate(0px, 5px);
+  background-color: white;
+}
+#Container {
+  width: 700px;
+  height: 480px;
+  background-color: #4d4d4d;
+  border-radius: 100px;
+  transform: translate(50%, 50%);
+}
+#ChampionContainer, #SummonerSpellContainer, #CooldownContainer {
+  transform: translate(35px, 77px);
+}
+#CooldownContainer {
+  display: inline-block;
+  width: 700px;
+}
+#InputContainer {
+  width: 630px;
+  height: 125px;
+  transform: translate(35px, 80px);
+}
+#SummonerSpellContainer {
+  width: 620px;
+  height: 60px;
+}
+#ChampionContainer {
+  width: 620px;
+  height: 120px;
+}
+#JungleContainer {
+  width: 117px;
+  transform: translate(125px, -124.5px);
+}
+#MidContainer {
+  width: 117px;
+  transform: translate(250px, -249px);
+}
+#ADCContainer {
+  width: 117px;
+  transform: translate(375px, -373.5px);
+}
+#SupportContainer {
+  width: 117px;
+  transform: translate(500px, -497.5px);
+}
+#TopCooldown1, #JungleCooldown1, #MidCooldown1, #ADCCooldown1, #SupportCooldown1,
+#TopCooldown2, #JungleCooldown2, #MidCooldown2, #ADCCooldown2, #SupportCooldown2 {
+  width: 7.778%;
+}
+#Top1 {
+  max-width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(-1px, 0px);
+}
+#Top2 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(61px, -60px);
+}
+#Jungle1 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(124px, -120px);
+}
+#Jungle2 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(186px, -180px);
+}
+#Mid1 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(249px, -240px);
+}
+#Mid2 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(311px, -300px);
+}
+#ADC1 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(374px, -360px);
+}
+#ADC2 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(436px, -420px);
+}
+#Support1 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(499px, -480px);
+}
+#Support2 {
+  width: 58px;
+  height: 58px;
+  border: 1px solid transparent;
+  transform: translate(561px, -540px);
+}
+#Top, #Jungle, #Mid, #ADC, #Support {
+  width: 117px;
+}
+#Support {
+  transform: translateX(-1px);
+}
+#TopSummonerSpell1, #JungleSummonerSpell1, #MidSummonerSpell1, #ADCSummonerSpell1, #SupportSummonerSpell1,
+#TopSummonerSpell2, #JungleSummonerSpell2, #MidSummonerSpell2, #ADCSummonerSpell2, #SupportSummonerSpell2 {
+  width: 58px;
+  height: 58px;
+  margin-right: 4.4px;
+}
+#TopSummoner1, #JungleSummoner2, #MidSummoner1, #ADCSummoner2, #SupportSummoner1,
+#TopSummoner2, #JungleSummoner1, #MidSummoner2, #ADCSummoner1, #SupportSummoner2 {
+  width: 121px;
+}
+#TopChamp {
+  width: 120px;
+  transform: translate(0px, 3px);
+}
+#JungleChamp {
+  width: 120px;
+  transform: translate(125px, -89px);
+}
+#MidChamp {
+  width: 120px;
+  transform: translate(250px, -181px);
+}
+#ADCChamp {
+  width: 120px;
+  transform: translate(375px, -273px);
+}
+#SupportChamp {
+  width: 120px;
+  transform: translate(499px, -365px);
+}
